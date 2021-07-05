@@ -1,0 +1,131 @@
+@import "~/src/partials/variables.scss";
+
+.main-content {
+  .avail-bal {
+    padding: 2.5rem;
+    font-size: 14px;
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .balance {
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 0.5rem 0;
+      }
+      button {
+        border: none;
+        background-color: $secondary;
+        color: #ffffff;
+        border-radius: 5px;
+        padding: 0 5px;
+        font-size: 14px;
+        height: 32px;
+        cursor: pointer;
+      }
+    }
+  }
+  .card-info {
+    @include box-shadow();
+    display: flex;
+    margin: 0 2.5rem;
+    > div {
+      flex: 1;
+      padding: 1.5rem;
+    }
+    .card-options {
+      background-color: $tertiary;
+      color: $secondary;
+      padding: 2px;
+      border-radius: 10px;
+      ul.menu-list {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5px;
+        li.menu-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 4px;
+          cursor: pointer;
+          > span {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    .card-transactions {
+      background-color: #ffffff;
+      z-index: 1;
+      .tran {
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+        @include box-shadow();
+        .accordion {
+          padding: 1rem;
+          font-size: 14px;
+          background-color: $tertiary;
+          color: $secondary;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .panel {
+          display: none;
+          margin: 0;
+          font-size: 14px;
+          li {
+            padding: 1rem;
+            line-height: 1.8;
+            border-bottom: 1px solid #dddddd;
+            .shop {
+              display: flex;
+              justify-content: space-between;
+              font-weight: 600;
+            }
+            .date {
+              color: #757575;
+              font-size: 12px;
+            }
+            .type {
+              color: $secondary;
+              font-size: 12px;
+              font-weight: 600;
+            }
+            &.view-all {
+              text-align: center;
+              color: $primary;
+              font-weight: 600;
+            }
+          }
+          &.active {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: $screen-sm) {
+    background-color: $secondary;
+    margin-bottom: 80px;
+    .avail-bal {
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+    }
+    .card-info {
+      flex-direction: column;
+      margin: 0;
+      box-shadow: none;
+      .credit-cards {
+        position: sticky;
+        top: 140px;
+        padding-top: 0;
+      }
+    }
+  }
+}
